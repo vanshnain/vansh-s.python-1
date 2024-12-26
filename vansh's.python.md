@@ -146,37 +146,24 @@ character_info()
 
 ```bash
 def str_ops(s, target, repl):
-    freq = 0
-    for c in s:
-        if c == target:
-            freq += 1
-
-
-    replaced = ""
-    for c in s:
-        if c == target:
-            replaced += repl
-        else:
-            replaced += c
-
-   
-    removed_first = ""
-    found = False
-    for c in s:
-        if c == target and not found:
-            found = True
-            continue
-        removed_first += c
-
-   
-    removed_all = ""
-    for c in s:
-        if c != target:
-            removed_all += c
-
+    # Count the frequency of the target character
+    freq = s.count(target)
+    
+    # Replace all occurrences of the target with repl
+    replaced = s.replace(target, repl)
+    
+    # Remove the first occurrence of the target
+    removed_first = s.replace(target, "", 1)
+    
+    # Remove all occurrences of the target
+    removed_all = s.replace(target, "")
+    
     return freq, replaced, removed_first, removed_all
 
-str_ops("hello python","o","a")
+# Example usage
+result = str_ops("hello python", "o", "a")
+print(result)
+
 ```
 ### Code output-
 ![image](https://github.com/user-attachments/assets/bfe84da2-cbc5-42c4-a884-a320ee59a588)
